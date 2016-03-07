@@ -9,11 +9,19 @@
 
 import json
 import requests
+import sys
 
 url = "https://api.kraken.com/0/public/Ticker"
 payload = {"pair": "XXBTZEUR"}
 
-response = requests.get(url, params=payload)
+try:
+    response = requests.get(url, params=payload)
+except:
+    print "Error"
+    print "---"
+    print "Could not connect to the Internet | color = red"
+    sys.exit(-1)
+
 obj = response.json()
 
 price = float(obj['result']['XXBTZEUR']['c'][0])
