@@ -1,1 +1,0 @@
-../kraken-btceur.10s.py
